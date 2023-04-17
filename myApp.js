@@ -37,6 +37,12 @@ app.get("/:word/echo", (request, response) => {
   return response.json({ "echo": request.params.word });
 });
 
+app.get("/name", (request, response) => {
+  return response.json({
+    "name": `${request.query.first} ${request.query.last}`,
+  });
+});
+
 console.log("Hello World");
 
 module.exports = app;
