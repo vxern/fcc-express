@@ -41,9 +41,13 @@ app.get("/:word/echo", (request, response) => {
   return response.json({ "echo": request.params.word });
 });
 
-app.get("/name", (request, response) => {
+app.route("/name").get((request, response) => {
   return response.json({
     "name": `${request.query.first} ${request.query.last}`,
+  });
+}).post((request, response) => {
+  return response.json({
+    "name": `${request.body.first} ${request.body.last}`,
   });
 });
 
