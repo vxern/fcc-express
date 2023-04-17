@@ -3,6 +3,11 @@ require("dotenv").config();
 let express = require("express");
 let app = express();
 
+app.use((request, response, next) => {
+  console.log(`${request.method} ${request.path} - ${request.ip}`);
+  next();
+});
+
 app.use("/public", express.static(`${__dirname}/public`));
 
 app.get("/", (request, response) => {
