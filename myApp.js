@@ -33,6 +33,10 @@ app.get("/now", (request, response, next) => {
   return response.json({ "time": request.time });
 });
 
+app.get("/:word/echo", (request, response) => {
+  return response.json({ "echo": request.params.word });
+});
+
 console.log("Hello World");
 
 module.exports = app;
