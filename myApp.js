@@ -2,7 +2,7 @@ let express = require("express");
 let app = express();
 
 app.get("/", (request, response) => {
-  response.send("Hello Express");
+  response.sendFile(`${__dirname}/views/index.html`);
 });
 
 console.log("Hello World");
